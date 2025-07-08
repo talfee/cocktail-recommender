@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Aperol Spritz",
+    "description": "Aperol, Prosecco, soda water, orange slice garnish"
+  },
+  {
+    "name": "Bloody Mary",
+    "description": "Vodka, tomato juice, Worcestershire sauce or horseradish, pepper, lime juice, pickle juice"
+  },
+  {
+    "name": "Boulevardier",
+    "description": "Bourbon, sweet vermouth, Campari, orange peel garnish"
+  },
+  {
+    "name": "Cosmopolitan",
+    "description": "Vodka, cranberry juice, Cointreau or Grand Marnier, lime juice, lemon rind twist"
+  },
+  {
+    "name": "Daiquiri",
+    "description": "White rum, lime juice, simple syrup"
+  },
+  {
+    "name": "Dark 'n' Stormy",
+    "description": "Dark rum, ginger beer, lime or candied ginger garnish"
+  },
+  {
+    "name": "Espresso Martini",
+    "description": "Vodka or mezcal, coffee liqueur, espresso, sweetener"
+  },
+  {
+    "name": "French 75",
+    "description": "Gin, Champagne, lemon juice, simple syrup"
+  },
+  {
+    "name": "Gimlet",
+    "description": "Gin, lime juice, sugar"
+  },
+  {
+    "name": "Long Island Iced Tea",
+    "description": "Gin, rum, tequila, triple sec, vodka, lemon juice, cola"
+  },
+  {
+    "name": "Mai Tai",
+    "description": "Light rum, dark rum, orgeat, lime juice, orange liqueur, simple syrup"
+  },
+  {
+    "name": "Manhattan",
+    "description": "Bourbon or rye whiskey, sweet vermouth, bitters, brandied cherry garnish"
+  },
+  {
+    "name": "Margarita",
+    "description": "Tequila, triple sec, lime juice, salted rim"
+  },
+  {
+    "name": "Martini (Classic)",
+    "description": "Gin or vodka, dry vermouth, olive or lemon twist garnish"
+  },
+  {
+    "name": "Mimosa",
+    "description": "Champagne, orange juice"
+  },
+  {
+    "name": "Mojito",
+    "description": "White rum, mint, lime juice, simple syrup, club soda"
+  },
+  {
+    "name": "Moscow Mule",
+    "description": "Vodka, lime juice, ginger beer"
+  },
+  {
+    "name": "Negroni",
+    "description": "Gin, Campari, sweet vermouth, orange peel garnish"
+  },
+  {
+    "name": "Old Fashioned",
+    "description": "Whiskey, sugar, bitters"
+  },
+  {
+    "name": "Paloma",
+    "description": "Tequila, grapefruit soda (or juice), lime juice, salt"
+  },
+  {
+    "name": "Penicillin",
+    "description": "Blended scotch, lemon juice, honey-ginger syrup, smoky scotch float"
+  },
+  {
+    "name": "Piña Colada",
+    "description": "Rum, cream of coconut, pineapple juice, ice"
+  },
+  {
+    "name": "Pisco Sour",
+    "description": "Pisco, egg white, bitters, lime juice, simple syrup"
+  },
+  {
+    "name": "Sazerac",
+    "description": "Whiskey, absinthe rinse, bitters, sugar"
+  },
+  {
+    "name": "Whiskey Sour",
+    "description": "Whiskey, lemon juice, simple syrup, egg white (optional)"
+  }
+
+
+]
