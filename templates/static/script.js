@@ -8,13 +8,13 @@ document.getElementById("search").addEventListener("click", async () => {
         const formData = new FormData();
         formData.append("image", fileInput.files[0]);
 
-        res = await fetch("/recommend", {
+        res = await fetch(`${BACKEND}/recommend`, {
             method: "POST",
             body: formData
         });
     } else {
         const query = document.getElementById("query").value;
-        res = await fetch("/recommend", {
+        res = await fetch(`${BACKEND}/recommend`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query })
