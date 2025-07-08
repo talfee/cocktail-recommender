@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Cocktail Recommender</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <section class="hero">
     <div class="hero-content">
-      <h1>Cocktail Recommender</h1>
+      <h1>cocktail recommender</h1>
       <div class="search-box">
+        <label class="file-btn">
+          add file
+          <input id="image-input" type="file" accept="image/*">
+        </label>
         <input id="query" type="text" placeholder="enter cocktail name...">
-        <input id="image-input" type="file" accept="image/*">
-        <button id="search">search</button>
+        <button id="search" class="icon-btn">⌕</button>
       </div>
     </div>
   </section>

@@ -15,3 +15,7 @@ https://www.thecocktaildb.com/api.php
 flow:
 1. app.py fetches drinks dataset from thecocktaildb
 2. 
+
+usage of AI
+1. refactoring in multiple files
+2. majority of style.css, index.html for frontend

@@ -1,0 +1,124 @@
+/* Fonts */
+body, input, button, label {
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+/* Color variables */
+:root {
+  --dark-brown:  rgba(49,45,42, 0.8);
+  --beige:       #EFE2D9;
+  --light-brown: rgba(181,101,66, 0.8);
+}
+
+/* Reset & layout */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  background: var(--beige);
+  color: var(--dark-brown);
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+}
+
+/* SEARCH BOX */
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-box input[type="text"] {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--dark-brown);
+  border-radius: 999px;
+  outline: none;
+  flex: 1;
+  background: var(--beige);
+  font-size: 1rem;
+}
+
+.search-box .file-btn {
+  position: relative;
+  border: 2px solid var(--dark-brown);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--light-brown);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.search-box .file-btn input[type="file"] {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.icon-btn {
+  padding: 0.5rem 1rem;
+  background: var(--dark-brown);
+  color: var(--beige);
+  border: none;
+  border-radius: 999px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* RESULTS GRID */
+.results {
+  padding: 2rem 1rem;
+}
+.cards-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  background: var(--beige);
+  border: 2px solid var(--dark-brown);
+  border-radius: 1rem;
+  width: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1.2;
+}
+
+.card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+}
+
+.card .similarity {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  padding: 0 0.75rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-align: center;
+}
