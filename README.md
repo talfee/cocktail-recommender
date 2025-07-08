@@ -7,6 +7,8 @@
 ## things to do after mvp
 ### urgent/important
 1. deployment
+- frontend: fixing the issues
+- backend: why memory? 
 ### non urgent/important
 1. add testing suite
 features
@@ -18,7 +20,12 @@ pip install -r requirements.txt
 
 ## learnings
 1. how to deploy backend on render
-2. fixing netlify "page not found" error: 
+fixing netlify "page not found" error: 
+- this was caused by 
+1. netlify not locating index.html since it was in templates
+2. script.js defines BACKEND but all fetch calls use the relative path instead of \${BACKEND}/recommend, so the netlify deployment try to hit the netlify domain and not the flask server. since netlify has no configured /recommend endpoint, any request to that 404s
+3. need to add a netlify.toml?
+
 ## credits
 apis:
 1. https://www.thecocktaildb.com/api.php
