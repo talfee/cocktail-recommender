@@ -43,7 +43,11 @@ dim       = embs.shape[1]
 index     = faiss.IndexFlatIP(dim)
 index.add(embs)
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="templates",
+    static_folder="templates/static"    # ← point here
+)
 CORS(app)
 
 @app.route("/")

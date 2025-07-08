@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ## learnings
 1. how to deploy backend on render
-
+2. fixing netlify "page not found" error: 
 ## credits
 apis:
 1. https://www.thecocktaildb.com/api.php
