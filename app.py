@@ -7,7 +7,7 @@ from PIL import Image
 from flask_cors import CORS
 
 # variables
-l = 20
+l = 1500
 
 def load_cocktails(limit=l):
     resp = requests.get(
