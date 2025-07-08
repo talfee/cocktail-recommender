@@ -1,4 +1,6 @@
-const BACKEND = "https://cocktail-recommender-i2nk.onrender.com";
+// const BACKEND = "https://cocktail-recommender-i2nk.onrender.com";
+const BACKEND = "http://127.0.0.1:5000";
+
 
 document.getElementById("search").addEventListener("click", async () => {
     const fileInput = document.getElementById("image-input");
