@@ -1,20 +1,27 @@
 # roundtwo
-created venv 
-python3 -m venv venv
+
+## overview of app:
+1. app.py fetches drinks dataset from thecocktaildb (currently 1000 drinks)
+2. transforms dataset using CLIP
+
+## things to do after mvp
+### urgent/important
+1. deployment
+### non urgent/important
+1. add testing suite
+features
+1.  input cocktails
+
+## commands to remember
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-things to do after mvp
-- input cocktails
-- testing suite
+## learnings
+1. how to deploy backend on render
 
-uses
-https://www.thecocktaildb.com/api.php
-
-
-flow:
-1. app.py fetches drinks dataset from thecocktaildb
-2. 
+## credits
+apis:
+1. https://www.thecocktaildb.com/api.php
 
 usage of AI
 1. refactoring in multiple files

@@ -4,7 +4,9 @@ import requests
 import faiss
 import numpy as np
 from PIL import Image
+from flask_cors import CORS
 
+# variables
 l = 1000
 
 def load_cocktails(limit=l):
@@ -42,6 +44,7 @@ index     = faiss.IndexFlatIP(dim)
 index.add(embs)
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def home():
