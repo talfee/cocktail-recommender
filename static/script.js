@@ -1,3 +1,5 @@
+const BACKEND = "https://cocktail-recommender-i2nk.onrender.com";
+
 document.getElementById("search").addEventListener("click", async () => {
     const fileInput = document.getElementById("image-input");
     let res;
