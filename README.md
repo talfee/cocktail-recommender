@@ -5,8 +5,16 @@
 - go to https://cocktail-recommender.netlify.app/ 
 
 ## overview of app:
+### walk through
 1. app.py fetches drinks dataset from thecocktaildb (currently 1000 drinks)
 2. transforms dataset using CLIP
+
+### deliverbles
+1. Data Preparation: fetched a dataset from TheCocktailDB API, each entry containing name, description, and image
+2. Embedding Generation: used a CLIP‐based SentenceTransformer (clip-ViT-B-32) to encode cocktail descriptions into 512-dimension vectors.
+3. Image Embeddings: the model encodes uploaded images (via PIL) into the same embedding space as text for image similarity search
+4. Vector Database Setup: embeddings are stored in a FAISS IndexFlatIP in memory
+5. Similarity Search & RAG: for similarity search, app.py detect whether the user sent text or an image, does query embedding, searches, and return the top 3 matches (name, image, description, similarity score). I used a local BART model from HuggingFace (distilbart-cnn-12-6) to generate a summary of the result. 
    
 ## things to do after mvp
 ### urgent/important

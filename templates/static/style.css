@@ -122,3 +122,9 @@ body {
   line-height: 1.2;
   text-align: center;
 }
+.upload-feedback {
+  margin-left: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--dark-brown);
+  font-style: italic;
+}
