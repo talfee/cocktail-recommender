@@ -1,6 +1,6 @@
+// script.js
 // const BACKEND = "https://cocktail-recommender-i2nk.onrender.com";
 const BACKEND = "http://127.0.0.1:5000";
-
 
 document.getElementById("search").addEventListener("click", async () => {
     const fileInput = document.getElementById("image-input");
@@ -23,11 +23,18 @@ document.getElementById("search").addEventListener("click", async () => {
         });
     }
 
-    const data = await res.json();
+    if (!res.ok) {
+        console.error("Request failed:", res.statusText);
+        return;
+    }
+
+    const { results, recommendation } = await res.json();
+    document.getElementById("summary").textContent = recommendation;
+
     const container = document.getElementById("results");
     container.innerHTML = "";
 
-    data.forEach(item => {
+    results.forEach(item => {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `

@@ -14,7 +14,7 @@
 2. Embedding Generation: used a CLIP‐based SentenceTransformer (clip-ViT-B-32) to encode cocktail descriptions into 512-dimension vectors.
 3. Image Embeddings: the model encodes uploaded images (via PIL) into the same embedding space as text for image similarity search
 4. Vector Database Setup: embeddings are stored in a FAISS IndexFlatIP in memory
-5. Similarity Search & RAG: for similarity search, app.py detect whether the user sent text or an image, does query embedding, searches, and return the top 3 matches (name, image, description, similarity score). I used a local BART model from HuggingFace (distilbart-cnn-12-6) to generate a summary of the result. 
+5. Similarity Search & RAG: for similarity search, app.py detect whether the user sent text or an image, does query embedding, searches, and return the top 3 matches (name, image, description, similarity score). I used a local BART model from HuggingFace (distilbart-cnn-12-6) to generate a summary of the result. I want to transfer to Flan T5 for more generation capabilities
    
 ## things to do after mvp
 ### urgent/important

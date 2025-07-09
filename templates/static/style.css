@@ -128,3 +128,8 @@ body {
   color: var(--dark-brown);
   font-style: italic;
 }
+.summary-text {
+  text-align: center;      
+  padding: 1.5rem 2rem;   
+  
+}
