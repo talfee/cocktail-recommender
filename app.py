@@ -37,25 +37,19 @@ names        = [d["name"]        for d in data]
 descriptions = [d["description"] for d in data]
 images       = [d["image"]       for d in data]
 
-model = SentenceTransformer("clip-ViT-B-32")
-embs = model.encode(descriptions, normalize_embeddings=True).astype("float32")
+model     = SentenceTransformer("clip-ViT-B-32")
+embs      = model.encode(descriptions, normalize_embeddings=True).astype("float32")
 
-dim   = embs.shape[1]
-index = faiss.IndexFlatIP(dim)
+dim       = embs.shape[1]
+index     = faiss.IndexFlatIP(dim)
 index.add(embs)
 
 app = Flask(
     __name__,
     template_folder="templates",
-    static_folder="templates/static"
+    static_folder="templates/static"    # ← point here
 )
 CORS(app)
-
-summarizer = pipeline(
-    "summarization",
-    model="sshleifer/distilbart-cnn-12-6",
-    device=-1  # CPU; change to 0 if you have a GPU
-)
 
 @app.route("/")
 def home():
@@ -65,11 +59,11 @@ def home():
 def recommend():
     if request.content_type.startswith("application/json"):
         payload = request.get_json(force=True)
-        q_emb = model.encode([payload.get("query", "")], normalize_embeddings=True).astype("float32")
+        q_emb   = model.encode([ payload.get("query","") ], normalize_embeddings=True).astype("float32")
     else:
-        file = request.files.get("image")
-        img  = Image.open(file.stream).convert("RGB")
-        q_emb = model.encode([img], normalize_embeddings=True).astype("float32")
+        file    = request.files.get("image")
+        img     = Image.open(file.stream).convert("RGB")
+        q_emb   = model.encode([ img ], normalize_embeddings=True).astype("float32")
 
     D, I = index.search(q_emb, k=3)
 
@@ -81,27 +75,7 @@ def recommend():
             "image":       images[idx],
             "similarity":  float(score) * 100
         })
-
-    # 2) Build a single context string from the top-3 descriptions
-    context = "\n".join(
-        f"{i+1}. {r['name']}: {r['description']}"
-        for i, r in enumerate(results)
-    )
-
-    # 3) Generate a 2-sentence abstractive summary
-    summary_output = summarizer(
-        context,
-        max_length=64,
-        min_length=25,
-        do_sample=False
-    )
-    summary_text = summary_output[0]["summary_text"].strip()
-
-    # 4) Return both results and the generated summary
-    return jsonify({
-        "results": results,
-        "summary": summary_text
-    })
+    return jsonify(results)
 
 if __name__ == "__main__":
     app.run(debug=True)
