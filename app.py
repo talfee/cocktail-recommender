@@ -32,20 +32,19 @@ def load_cocktails(limit=l):
         })
     return data
 
-# load and index
+
 data         = load_cocktails(limit=l)
 names        = [d["name"]        for d in data]
 descriptions = [d["description"] for d in data]
 images       = [d["image"]       for d in data]
 
-# sentence‐BERT + FAISS
 model = SentenceTransformer("clip-ViT-B-32")
 embs  = model.encode(descriptions, normalize_embeddings=True).astype("float32")
 dim   = embs.shape[1]
 index = faiss.IndexFlatIP(dim)
 index.add(embs)
 
-# flask app
+
 app = Flask(
     __name__,
     template_folder="templates",
@@ -53,11 +52,11 @@ app = Flask(
 )
 CORS(app)
 
-# switch to FLAN-T5 for instruction-tuned generation
+
 generator = pipeline(
     "text2text-generation",
     model="google/flan-t5-base",
-    device=-1        # set to 0 if you have a GPU
+    device=-1        
 )
 
 @app.route("/")
@@ -66,7 +65,7 @@ def home():
 
 @app.route("/recommend", methods=["POST"])
 def recommend():
-    # 1) embed the query (text or image)
+    # embed
     if request.content_type.startswith("application/json"):
         payload = request.get_json(force=True)
         q_emb = model.encode(
@@ -74,13 +73,12 @@ def recommend():
             normalize_embeddings=True
         ).astype("float32")
     else:
-        #user query used for instrution prmpt
+        # user query used for instrution prmpt
         user_q = request.form.get("query", "")
         file = request.files.get("image")
         img  = Image.open(file.stream).convert("RGB")
         q_emb = model.encode([img], normalize_embeddings=True).astype("float32")
 
-    # 2) retrieve top-3 closest
     D, I = index.search(q_emb, k=3)
     results = [
         {
@@ -92,7 +90,6 @@ def recommend():
         for score, idx in zip(D[0], I[0])
     ]
 
-    # 3) build an instruction-driven prompt
     instruction = (
         f"You are a witty bartender AI."
         "Below are three other cocktails—explain, in two sentences, why they’re similar to (think shared ingredients or style) and add a playful flair:\n\n"
@@ -103,7 +100,6 @@ def recommend():
     )
     prompt = instruction + context
 
-    # 4) generate with sampling for creativity
     gen = generator(
         prompt,
         max_length=80,
@@ -115,7 +111,6 @@ def recommend():
     )
     recommendation = gen[0]["generated_text"].strip()
 
-    # 5) return both
     return jsonify({
         "results":        results,
         "recommendation": recommendation
